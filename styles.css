@@ -154,3 +154,10 @@ html, body {
     background-color: #db8215;
     color:white;
 }
+
+footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+}
