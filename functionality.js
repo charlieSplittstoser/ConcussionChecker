@@ -37,6 +37,9 @@ symptomssarr = ["headache",
 // priorityarr = {8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27} // corresponding priorities
 symptoms = []
 
+
+
+
 function SymptomClass(symptom, priority) { // class to store name priorty and if it was checked or not (capatalized S and c)
   this.symptom = symptom
   this.priority = priority;
@@ -113,6 +116,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   }
 
   function calcSymptomNumber() {
+      getHospitals(); // call this first
+
       var priorityArr = [8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27];
 
         var numberOfCheckboxes = 14;
@@ -140,3 +145,4 @@ function checkBox(id) {
     }
 
 }
+
