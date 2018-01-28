@@ -1,11 +1,13 @@
 <?php
-
+header("Access-Control-Allow-Origin: *");
 
 $c = $_GET['a'];
+$lat = $_GET['lat'];
+$lng = $_GET['lng'];
 if($c == "pjm") {
-    $url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Closest+hospital&location=43.56,-97.86&type=hospital&key=AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8";
+    $url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Closest+hospital&location=" . $lat . "," . $lng . "&type=hospital&key=AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8";
 } else {
-    $url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Closest+hospital&location=43.56,-97.86&type=hospital&key=AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8";
+    $url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Closest+hospital&location=" . $lat . "," . $lng . "&type=hospital&key=AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8";
 }
 
 $handle = fopen($url, "r");

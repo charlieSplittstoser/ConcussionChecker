@@ -1,5 +1,5 @@
 var map, infoWindow;
-
+var loaded = false;
 /*
 var symptomssarr = ["headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
 "Difficulty recognizing people or places","Confusion or disorientation",
@@ -16,6 +16,7 @@ function getHospitals() {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
+        console.log(pos.lat);
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -34,7 +35,7 @@ function getHospitals() {
                console.log(JSON.stringify(obj['results'][0]['formatted_address']));
             }
         };
-        xhttp.open("GET", "proxy.php?a=pjm", true);
+        xhttp.open("GET", "proxy.php?a=pjm&lat="+pos.lat+"&lng="+pos.lng, true);
         xhttp.send();
 
       }, function() {
@@ -58,7 +59,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   }
 
 function calcSymptomNumber() {
-      getHospitals();
       var priorityArr = [8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27];
 
         var numberOfCheckboxes = 14;

@@ -1,28 +1,37 @@
 <html>
-
-<script src="https://apis.google.com/js/api.js"></script>
 <script>
-function start() {
-  // 2. Initialize the JavaScript client library.
-  gapi.client.init({
-    'apiKey': 'AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8',
-    // clientId and scope are optional if auth is not required.
-    'clientId': '14005125802-9s9hd5mnknos1906mfo5n3cosgi0ajrt.apps.googleusercontent.com',
-    'scope': 'profile',
-  }).then(function() {
-    // 3. Initialize and make the API request.
-    return gapi.client.request({
-      'path': 'https://people.googleapis.com/v1/people/me?requestMask.includeField=person.names',
-    })
-  }).then(function(response) {
-    console.log(response.result);
-  }, function(reason) {
-    console.log('Error: ' + reason.result.error.message);
-  });
-};
-// 1. Load the JavaScript client library.
-gapi.load('client', start);
+var geocoder;
+  var map;
+  function initialize() {
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var mapOptions = {
+      zoom: 8,
+      center: latlng
+    }
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  }
+
+  function codeAddress() {
+    var address = document.getElementById('address').value;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
 </script>
-
-
+<body onload="initialize()">
+ <div id="map" style="width: 320px; height: 480px;"></div>
+  <div>
+    <input id="address" type="textbox" value="Sydney, NSW">
+    <input type="button" value="Encode" onclick="codeAddress()">
+  </div>
+</body>
 </html>
