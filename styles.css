@@ -82,6 +82,7 @@ body {
     cursor:not-allowed
 }
 
+
 /* The following CSS not required for the badge styled checkboxes: */
 section + section  {
     margin-top:20px;
@@ -116,5 +117,6 @@ html, body {
 }
 
 .test {
-    color: purple;
+    background-color: #1c7430 !important;
+    color:red;
 }

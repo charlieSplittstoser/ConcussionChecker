@@ -53,15 +53,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
   function calcSymptomNumber() {
         var checkboxes = [];
-
+        $('#checkbox-'+i).Class = "asda"
         var numberOfCheckboxes = 15;
 
         // get all checkbox elemetns
-        for(var i = 0; i < numberOfCheckboxes; i++){
+         for(var i = 0; i < numberOfCheckboxes; i++){
             var num = i + 1;
-            document.getElementById("checkbox-" + num).setAttribute("class", "test");
-            //numberOfCheckboxes[i].setAttribute("class", "test");
-        }
-      document.getElementById("checkbox-1").setAttribute("class", "test");
+        //     console.log(num);
+        $('#badge'+num).addClass('test');
+       //document.getElementById("checkbox-" + num).setAttribute("class", "test");
+         }
+      //document.getElementById("checkbox-1").setAttribute("class", "test");
   }
 
