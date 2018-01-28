@@ -90,8 +90,7 @@
 </div>
 <!--Checkbox butons-->
 
-<button type="button" onClick="calcSymptomNumber();getHospitals()" id="modalOpener" class="btn btn-primary theme-orange" data-toggle="modal" data-target="#exampleModal">Calculate Risk
-<button type="button" onClick="calcSymptomNumber()" id="modalOpener" class="btn btn-primary theme-orange" data-toggle="modal" data-target="#exampleModal">Calculate Risk
+<button type="button" onClick="calcSymptomNumber();" id="modalOpener" class="btn btn-primary theme-orange" data-toggle="modal" data-target="#exampleModal">Calculate Risk
 </button>
 
 <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
@@ -107,8 +106,8 @@
         <h3>Likelihood you have a concussion:</h3>
         <h1>High</h1>
         <br><br>
-        <h5 class="text-orange">Nearest Hospital:</h5>
-
+        <h5 class="text-orange">Nearest Hospitals:</h5>
+        <div id="hospitalArea"></div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary theme-orange">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

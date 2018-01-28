@@ -1,15 +1,5 @@
 var map, infoWindow;
 
-/* Has the map already been initiated? */
-var initiated = false;
-
-function loadMap() {
-    if (initiated == false) {
-        getLocation();
-        initiated = true;
-    }
-}
-
 var symptomsarr = ["headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
 "Difficulty recognizing people or places","Confusion or disorientation",
 "Changes in behavior/ irritability", "Repeated vomiting/nausea","Blurred Vision",
@@ -36,6 +26,7 @@ while (symptomsarr[i]) { //make each class for each symptom
   i++;
 }
 
+
 //AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8
 function getHospitals() {
     // Try HTML5 geolocation.
@@ -49,8 +40,18 @@ function getHospitals() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-               var obj = JSON.parse(xhttp.responseText)
-               console.log(xhttp.responseText);
+               var obj = JSON.parse(xhttp.responseText);
+               for (var i = 0; i < 3; i++) {
+                  var name = obj['results'][i]['name'];
+                  var address = obj['results'][i]['formatted_address'];
+                  var p = document.createElement('p');
+                  var parent = document.getElementById('hospitalArea');
+                  var addressLink = 'https://www.google.com/maps/place/' + address.split(' ').join('+');
+                  p.innerHTML = name + " - " + "<a href=" + addressLink + " target='_blank'>Directions</a>";
+                  parent.appendChild(p);
+               }
+               
+               console.log(JSON.stringify(obj['results'][0]['formatted_address']));
             }
         };
         xhttp.open("GET", "proxy.php?a=pjm", true);
@@ -65,7 +66,6 @@ function getHospitals() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
 }
-
 
 /* Handle errors with browsers that do not support the map */
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
