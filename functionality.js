@@ -10,6 +10,16 @@ function loadMap() {
     }
 }
 
+
+names = {"lol", "lol2"}
+priority = {"", ""}
+
+symptoms = []
+
+
+symptoms["headache"] = 8.85;
+
+
 /* Initiates the map on the modal */
 function initMap() {
 
