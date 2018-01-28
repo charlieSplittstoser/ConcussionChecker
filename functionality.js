@@ -1,5 +1,4 @@
 var map, infoWindow;
-var loaded = false;
 /*
 var symptomssarr = ["headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
 "Difficulty recognizing people or places","Confusion or disorientation",
@@ -61,12 +60,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   }
 
 function calcSymptomNumber() {
-<<<<<<< HEAD
-      var priorityArr = [8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27];
-=======
-      getHospitals();
       var priorityArr = [8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27, 5.0];
->>>>>>> ef849142124eb94d7f40a0e65f160d1de92f6344
 
         var numberOfCheckboxes = 15;
         var badge = 'badge';
@@ -88,7 +82,7 @@ function calcSymptomNumber() {
           result = "High Risk"
          }
          else if (total>=10) {
-          result = "Intermidate Risk"
+          result = "Intermediate Risk"
          }
          else{
           result = "Low Risk"
