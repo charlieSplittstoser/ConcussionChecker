@@ -1,8 +1,8 @@
 var map, infoWindow;
 
-<<<<<<< HEAD
+
 var symptomsarr = ["headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
-=======
+
 /* Has the map already been initiated? */
 var initiated = false;
 
@@ -14,7 +14,6 @@ function loadMap() {
 }
 
 var symptomssarr = ["headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
->>>>>>> a3dfe67090ba893e3381891e77d4b809735c024a
 "Difficulty recognizing people or places","Confusion or disorientation",
 "Changes in behavior/ irritability", "Repeated vomiting/nausea","Blurred Vision",
 "Change in eating or sleeping patterns","Loss of balance/unsteady walking","sensitivity to light and noise",
@@ -38,13 +37,8 @@ symptomsarr = ["headache",
 "dilated pupils",
 "Concentration and memory complaints"] // array of sysmptoms' names
 
-// priorityarr = {8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27} // corresponding priorities
 symptoms = []
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 42c06c4c4336599d48e5bea73a835a4c32527ea5
 function SymptomClass(symptom, priority) { // class to store name priorty and if it was checked or not (capatalized S and c)
   this.symptom = symptom
   this.priority = priority;
@@ -59,8 +53,6 @@ while (symptomsarr[i]) { //make each class for each symptom
   i++;
 }
 
-
-//AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8
 function getHospitals() {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -70,19 +62,6 @@ function getHospitals() {
           lng: position.coords.longitude
         };
 
-<<<<<<< HEAD
-        $.ajax({
-            url: "https://maps.googleapis.com/maps/api/geocode/json?&address=hospitals+near+" + pos.lat + ","+pos.lng,
-            type: "GET",   
-            dataType: 'json',
-            cache: false,
-            success: function(response){                          
-                console.log(response);                   
-            }           
-        });  
-        //xhttp.open("GET", "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Closest+hospital&location=" + pos.lat + "," + pos.lng + "&type=hospital&key=AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8", true);
-
-=======
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -102,7 +81,6 @@ function getHospitals() {
         };
         xhttp.open("GET", "proxy.php?a=pjm", true);
         xhttp.send();
->>>>>>> 42c06c4c4336599d48e5bea73a835a4c32527ea5
 
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
