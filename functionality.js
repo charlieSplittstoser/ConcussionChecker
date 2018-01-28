@@ -10,7 +10,6 @@ function loadMap() {
     }
 }
 
-<<<<<<< HEAD
 var symptomssarr = ["headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
 "Difficulty recognizing people or places","Confusion or disorientation",
 "Changes in behavior/ irritability", "Repeated vomiting/nausea","Blurred Vision",
@@ -18,7 +17,7 @@ var symptomssarr = ["headache", "loss of consciousness","Confusion or disorienta
 "dilated pupils","Concentration and memory complaints"]; // array of sysmptoms' names
 
 var priorityarr = [8.85,8.0,7.5,7.88,6.92,7.5,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27]; // corresponding priorities
-=======
+
 
 symptomssarr = ["headache",
 "loss of consciousness",
@@ -37,10 +36,6 @@ symptomssarr = ["headache",
 
 // priorityarr = {8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27} // corresponding priorities
 symptoms = []
->>>>>>> e6c3c58506a8b348dcdf04ab2960eb59db5b4b5d
-
-
-
 
 function SymptomClass(symptom, priority) { // class to store name priorty and if it was checked or not (capatalized S and c)
   this.symptom = symptom
