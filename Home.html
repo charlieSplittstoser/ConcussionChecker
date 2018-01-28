@@ -8,16 +8,20 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="functionality.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
 <center>
+        <div class="jumbotron jumbotron-fluid theme-orange-nohover">
+        <span>
+        <img src="images/logo.png" />
+        <h1 class="text-white">Concussion Checker</h1>
+        </span>
+    </div>
 <!--Checkbox butons-->
-<div class="container">
-    <section>
-        <h1>Concussion Checker</h1>
-    </section>
-    <section>
+<div class="container-fluid">
+
         <h2>Select your symptoms:</h2>
 
         <div class="form-group badge-checkboxes checkbox">
@@ -95,7 +99,7 @@
 
 
 
-<button type="button" onClick="loadMap()" id="modalOpener" class="btn btn-primary theme-orange" data-toggle="modal" data-target="#exampleModal">
+<button type="button" onClick="getHospitals()" id="modalOpener" class="btn btn-primary theme-orange" data-toggle="modal" data-target="#exampleModal">
   Calculate Concussion Risk
 </button>
 
@@ -113,9 +117,26 @@
         <h1>High</h1>
         <br><br>
         <h5 class="text-orange">Nearest Hospital:</h5>
-        <div id="mapContainer">
-            <div id="map"></div>
+        <div ng-app="myApp" ng-controller="myCtrl"> 
+
+        <p>Today's welcome message is:</p>
+
+        <h1>{{myWelcome}}</h1>
+
         </div>
+
+        <p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
+
+        <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope, $http) {
+          $http.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query=Closest+hospital&location=45.67,87.56&type=hospital&key=AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8")
+          .then(function(response) {
+            $scope.myWelcome = response.data;
+              
+          });
+        });
+        </script>
 
     
       </div>

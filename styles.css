@@ -1,10 +1,15 @@
 body {
-    background-color:#4f4b4b;
+    background-color:#FFFFFF;
 }
 
 .theme-orange {
-    background-color:#db8215;
-    border-color:#db8215;
+    background-color:#ff8f0f;
+    border-color:#ff8f0f;
+}
+
+.theme-orange-nohover {
+    background-color:#ff8f0f;
+    border-color:#ff8f0f;
 }
 
 .theme-orange:hover {
@@ -16,8 +21,20 @@ body {
     background-color:#4f4b4b;
 }
 
+.orange-outline {
+    border: 1px solid #db8215;
+}
+
+.max-width {
+    width:100%;
+}
+
 .text-orange {
     color:#db8215;
+}
+
+.text-white {
+    color:#FFFFFF;
 }
 
 .badge-checkboxes .checkbox input[type="checkbox"],
@@ -109,11 +126,19 @@ h2 {
     border:2px solid black;
 }
 
+.jumbotron {
+    border-bottom:1px solid black;
+}
+
 /* Optional: Makes the sample page fill the window. */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+}
+
+.badge {
+    border: 1px solid #db8215 !important;
 }
 
 .test {

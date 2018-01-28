@@ -5,23 +5,18 @@ var initiated = false;
 
 function loadMap() {
     if (initiated == false) {
-        initMap();
+        getLocation();
         initiated = true;
     }
 }
 
-
-<<<<<<< HEAD
-symptomssarr = {"headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
+var symptomssarr = ["headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
 "Difficulty recognizing people or places","Confusion or disorientation",
 "Changes in behavior/ irritability", "Repeated vomiting/nausea","Blurred Vision",
 "Change in eating or sleeping patterns","Loss of balance/unsteady walking","sensitivity to light and noise",
-"dilated pupils","Concentration and memory complaints"} // array of sysmptoms' names
+"dilated pupils","Concentration and memory complaints"]; // array of sysmptoms' names
 
-priorityarr = {8.85,8.0,7.5,7.88,6.92,7.5,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27} // corresponding priorities
-=======
-symptoms = []
->>>>>>> bb1ec6da3972bdadf05a0f0304bd6d090e0b9687
+var priorityarr = [8.85,8.0,7.5,7.88,6.92,7.5,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27]; // corresponding priorities
 
 
 
@@ -32,54 +27,12 @@ function SymptomClass(symptom, priority) { // class to store name priorty and if
   this.checked = false;
 }
 
-finalarr = {}; // array to story classes we make
+var finalarr = []; // array to story classes we make
 while (symptomsarr[i]) { //make each class for each symptom
   var symptomClass = new SymptomClass(symptomsarr[i],priorityarr[i]);
   finalarr[i] = symptomClass;
   i++;
 }
-
-
-/* Initiates the map on the modal */
-function initMap() {
-
-    /* Defines a new map */
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
-      zoom: 8
-    });
-
-    infoWindow = new google.maps.InfoWindow;
-
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-
-        infoWindow.setPosition(pos);
-        infoWindow.setContent('Location found.');
-        infoWindow.open(map);
-        map.setCenter(pos);
-      }, function() {
-        handleLocationError(true, infoWindow, map.getCenter());
-      });
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }
-}
-
-/* Handle errors with browsers that do not support the map */
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-                          'Error: The Geolocation service failed.' :
-                          'Error: Your browser doesn\'t support geolocation.');
-    infoWindow.open(map);
-  }
 
   function calcSymptomNumber() {
         var checkboxes = [];
@@ -96,6 +49,49 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       //document.getElementById("checkbox-1").setAttribute("class", "test");
   }
 
-function checkBox() {
 
+//AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8
+function getHospitals() {
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        $.ajax({
+            url: "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Closest+hospital&location=" + pos.lat + "," + pos.lng + "&type=hospital&key=AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8",
+            type: "GET",   
+            dataType: 'json',
+            cache: false,
+            success: function(response){                          
+                console.log(response);                   
+            }           
+        });  
+        //xhttp.open("GET", "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Closest+hospital&location=" + pos.lat + "," + pos.lng + "&type=hospital&key=AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8", true);
+
+
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
 }
+
+
+
+/* Gets a users lat and long */
+
+
+/* Handle errors with browsers that do not support the map */
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+                          'Error: The Geolocation service failed.' :
+                          'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.open(map);
+  }
