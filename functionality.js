@@ -82,7 +82,7 @@ function getHospitals() {
         };
 
         $.ajax({
-            url: "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Closest+hospital&location=" + pos.lat + "," + pos.lng + "&type=hospital&key=AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8",
+            url: "https://maps.googleapis.com/maps/api/geocode/json?&address=hospitals+near+" + pos.lat + ","+pos.lng,
             type: "GET",   
             dataType: 'json',
             cache: false,
@@ -116,8 +116,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                           'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
   }
-<<<<<<< HEAD
-=======
 
   function calcSymptomNumber() {
       var priorityArr = [8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27];
@@ -147,5 +145,3 @@ function checkBox(id) {
     }
 
 }
-
->>>>>>> e6c3c58506a8b348dcdf04ab2960eb59db5b4b5d
