@@ -50,3 +50,18 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                           'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
   }
+
+  function calcSymptomNumber() {
+        var checkboxes = [];
+
+        var numberOfCheckboxes = 15;
+
+        // get all checkbox elemetns
+        // for(i = 0; i < numberOfCheckboxes; i++){
+        //     var num = i + 1;
+        //     console.log(num);
+        //     numberOfCheckboxes[i] = document.getElementById("checkbox-" + num).setAttribute("class", "test");
+        // }
+      document.getElementById("checkbox-1").setAttribute("class", "test");
+  }
+
