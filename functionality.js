@@ -1,24 +1,16 @@
 var map, infoWindow;
-/*
-var symptomssarr = ["headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
-"Difficulty recognizing people or places","Confusion or disorientation",
-"Changes in behavior/ irritability", "Repeated vomiting/nausea","Blurred Vision",
-"Change in eating or sleeping patterns","Loss of balance/unsteady walking","sensitivity to light and noise",
-"dilated pupils","Concentration and memory complaints"]; // array of sysmptoms' names
-*/
 
+/* Grab user's location and find 3 nearby hospitals */
 function getHospitals() {
-    // Try HTML5 geolocation.
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
         var pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-        console.log(pos.lat);
 
-        console.log(pos.lat);
-
+        /* Query Google Maps API */
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -32,88 +24,63 @@ function getHospitals() {
                   p.innerHTML = name + " - " + "<a href=" + addressLink + " target='_blank'>Directions</a>";
                   parent.appendChild(p);
                }
-               
-               console.log(JSON.stringify(obj['results'][0]['formatted_address']));
             }
         };
         xhttp.open("GET", "proxy.php?a=pjm&lat="+pos.lat+"&lng="+pos.lng, true);
         xhttp.send();
 
       }, function() {
-        //handleLocationError(true, infoWindow, map.getCenter());
-        alert("Error");
+        alert("Error. Location is incompatible with your device.");
       });
     } else {
       // Browser doesn't support Geolocation
-      alert("Error");
-      //handleLocationError(false, infoWindow, map.getCenter());
+      alert("Error. Location is incompatible with your device.");
     }
 }
 
-/* Handle errors with browsers that do not support the map */
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-                          'Error: The Geolocation service failed.' :
-                          'Error: Your browser doesn\'t support geolocation.');
-    infoWindow.open(map);
-  }
-
+/* Weighting algorithm for tags */
 function calcSymptomNumber() {
-      var priorityArr = [8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27, 5.0];
+  var priorityArr = [8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27, 5.0];
 
-        var numberOfCheckboxes = 15;
-        var badge = 'badge';
-        var total = 0;
-        var sum = 0;
-         for (var i = 0; i < numberOfCheckboxes; i++){
-            var num = i + 1;
-        //     console.log(num);
-             if(document.getElementById(badge + num).classList.contains("checked")) {
-                console.log(num);
-                total = total + priorityArr[i];
-             }
-             sum = sum+ priorityArr[i]
+  var numberOfCheckboxes = 15;
+  var badge = 'badge';
+  var total = 0;
+  var sum = 0;
+  for (var i = 1; i <= numberOfCheckboxes; i++){
+      if(document.getElementById(badge + i).classList.contains("checked")) {
+          total = total + priorityArr[i-1];
+       }
+       sum = sum + priorityArr[i-1];
+   }
 
-       //document.getElementById("badge" + num).setAttribute("class", "test");
-         }
-         result = "";
-         if (total >= 15) {
-          result = "High Risk";
-             document.getElementById("total").classList.remove("lowRisk");
-             document.getElementById("total").classList.remove("mediumRisk");
+   result = "";
+   if (total >= 15) {
+      result = "<font color='red'>High Risk</font>";
+      /* document.getElementById("total").classList.remove("lowRisk");
+       document.getElementById("total").classList.remove("mediumRisk");
+       document.getElementById("total").classList.add("highRisk");
+   */
+   } else if (total>=10) {
+      result = "<font color='orange'>Intermediate Risk</font>";
+      /*document.getElementById("total").classList.remove("lowRisk");
+      document.getElementById("total").classList.remove("highRisk");
+      document.getElementById("total").classList.add("mediumRisk");*/
+   } else {
+      result = "<font color='yellow'>Low Risk</font>";
+       /*document.getElementById("total").classList.remove("highRisk");
+       document.getElementById("total").classList.remove("mediumRisk");
+       document.getElementById("total").classList.add("lowRisk");*/
+   }
+   document.getElementById("total").innerHTML = result;
+}
 
-             document.getElementById("total").classList.add("highRisk");
-         }
-         else if (total>=10) {
-          result = "Intermediate Risk";
-             document.getElementById("total").classList.remove("lowRisk");
-             document.getElementById("total").classList.remove("highRisk");
-
-             document.getElementById("total").classList.add("mediumRisk");
-         }
-         else{
-          result = "Low Risk";
-             document.getElementById("total").classList.remove("highRisk");
-             document.getElementById("total").classList.remove("mediumRisk");
-
-             document.getElementById("total").classList.add("lowRisk");
-         }
-         document.getElementById("total").innerHTML = result;
-         console.log(total);
-         console.log(sum);
-      // //document.getElementById("checkbox-1").setAttribute("class", "test");
-  }
-
+/* Handle boolean check values */
 function checkBox(id) {
-    // if doesn't have class checked add it, if it has it remove it
     if(document.getElementById(id).classList.contains("checked")){
         document.getElementById(id).classList.remove('checked');
         document.getElementById(id).style.backgroundColor = '#ffffff';//white
-    }
-    else {
+    } else {
         document.getElementById(id).style.backgroundColor = '#ff8f0f';// orange
         document.getElementById(id).classList.add("checked");
     }
-
 }

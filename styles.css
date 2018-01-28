@@ -99,11 +99,11 @@ body {
 .badge-checkboxes .checkbox {
     padding-left:0; /* Remove space normally used for the checkbox */
 }
+
 .badge-checkboxes .disabled label,
 .badge-checkboxes label.checkbox-inline.disabled {
     cursor:not-allowed
 }
-
 
 /* The following CSS not required for the badge styled checkboxes: */
 section + section  {
@@ -119,18 +119,6 @@ h2 {
     font-weight:bold;
 }
 
-/* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-#map {
-    height: 100%;
-}
-
-#mapContainer {
-    height:150px;
-    width:250px;
-    border:2px solid black;
-}
-
 .jumbotron {
     border-bottom:1px solid black;
 }
@@ -141,7 +129,6 @@ html, body {
     margin: 0;
     padding: 0;
 }
-
 
 .modal {
     margin: auto;
@@ -155,6 +142,7 @@ html, body {
     background-color: #1c7430 !important;
     color: red;
 }
+
 .checked {
     background-color: #db8215;
     color:white;
@@ -182,7 +170,6 @@ footer {
     width: 100%;
 }
 
-
 label.radio-inline, label.checkbox-inline {
     background-color: #ffffff;
     cursor: pointer;
@@ -191,21 +178,24 @@ label.radio-inline, label.checkbox-inline {
     margin-right: 2%;
     margin-left: 2%;
     padding: 10px 10px 10px 30px;
-    /*border-style: solid !important;*/
 }
+
 label.radio-inline.checked, label.checkbox-inline.checked {
     background-color: #ffffff;
     color: #fff !important;
     text-shadow: 1px 1px 2px #000 !important;
 }
+
 .checkbox-inline + .checkbox-inline, .radio-inline + .radio-inline {
     margin-left: 0;
 }
+
 .columns label.radio-inline, .columns label.checkbox-inline {
     min-width: 215px;
     vertical-align: top;
     width: 30%;
 }
+
 .additional-info-wrap {
     display: inline-block;
     margin: 0 2% 0 0;
@@ -214,9 +204,11 @@ label.radio-inline.checked, label.checkbox-inline.checked {
     vertical-align: top;
     width: 30%;
 }
+
 .additional-info-wrap label.checkbox-inline, .additional-info-wrap label.radio-inline {
     width: 100% !important;
 }
+
 .additional-info-wrap .additional-info {
     background-color: #266c8e;
     clear: both;
@@ -239,6 +231,7 @@ label.radio-inline.checked, label.checkbox-inline.checked {
 .mediumRisk {
     color: orange;
 }
+
 .lowRisk {
     color: yellow;
 }
