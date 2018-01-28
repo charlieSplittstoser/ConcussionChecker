@@ -10,7 +10,7 @@ function loadMap() {
     }
 }
 
-var symptomsarr = ["headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
+var symptomssarr = ["headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
 "Difficulty recognizing people or places","Confusion or disorientation",
 "Changes in behavior/ irritability", "Repeated vomiting/nausea","Blurred Vision",
 "Change in eating or sleeping patterns","Loss of balance/unsteady walking","sensitivity to light and noise",
@@ -19,10 +19,23 @@ var symptomsarr = ["headache", "loss of consciousness","Confusion or disorientat
 var priorityarr = [8.85,8.0,7.5,7.88,6.92,7.5,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27]; // corresponding priorities
 
 
+symptomsarr = ["headache",
+"loss of consciousness",
+"Confusion or disorientation",
+"Lasting or recurrent dizziness",
+"Difficulty recognizing people or places",
+"Ringing in ear",
+"Changes in behavior/ irritability", 
+"Repeated vomiting/nausea",
+"Blurred Vision",
+"Change in eating or sleeping patterns",
+"Loss of balance/unsteady walking",
+"sensitivity to light and noise",
+"dilated pupils",
+"Concentration and memory complaints"] // array of sysmptoms' names
+
+// priorityarr = {8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27} // corresponding priorities
 symptoms = []
-
-
-
 
 function SymptomClass(symptom, priority) { // class to store name priorty and if it was checked or not (capatalized S and c)
   this.symptom = symptom
@@ -64,15 +77,15 @@ function getHospitals() {
           lng: position.coords.longitude
         };
 
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-               console.log(xhttp.responseText);
-            }
-        };
-        xhttp.open("GET", "proxy.php?a=pjm", true);
-        xhttp.send();
-
+        $.ajax({
+            url: "https://maps.googleapis.com/maps/api/geocode/json?&address=hospitals+near+" + pos.lat + ","+pos.lng,
+            type: "GET",   
+            dataType: 'json',
+            cache: false,
+            success: function(response){                          
+                console.log(response);                   
+            }           
+        });  
         //xhttp.open("GET", "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Closest+hospital&location=" + pos.lat + "," + pos.lng + "&type=hospital&key=AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8", true);
 
 
@@ -101,26 +114,19 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   }
 
   function calcSymptomNumber() {
-      getHospitals(); // call this first
-
-      var symptomNumber = 0; // THIS NUMBER AT THE END OF THE FUNCTION WILL CONTAIN THE SYMPTOM NUMBER
       var priorityArr = [8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27];
 
         var numberOfCheckboxes = 14;
         var badge = 'badge';
          for(var i = 0; i < numberOfCheckboxes; i++){
             var num = i + 1;
-
         //     console.log(num);
              if(document.getElementById(badge + num).classList.contains("checked")) {
-                symptomNumber += priorityArr[i];
-                console.log(symptomNumber);
+                console.log(num);
              }
        //document.getElementById("badge" + num).setAttribute("class", "test");
          }
       // //document.getElementById("checkbox-1").setAttribute("class", "test");
-      console.log(symptomNumber);
-
   }
 
 function checkBox(id) {
@@ -135,4 +141,3 @@ function checkBox(id) {
     }
 
 }
-
