@@ -11,9 +11,6 @@ function loadMap() {
 }
 
 
-names = {"lol", "lol2"}
-priority = {"", ""}
-
 symptoms = []
 
 
@@ -70,9 +67,12 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
          for(var i = 0; i < numberOfCheckboxes; i++){
             var num = i + 1;
         //     console.log(num);
-        $('#badge'+num).addClass('test');
+        $('#badge'+num).checked(true);//addClass('test');
        //document.getElementById("checkbox-" + num).setAttribute("class", "test");
          }
       //document.getElementById("checkbox-1").setAttribute("class", "test");
   }
 
+function checkBox() {
+
+}
