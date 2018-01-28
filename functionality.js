@@ -11,17 +11,14 @@ function loadMap() {
 }
 
 
-<<<<<<< HEAD
-symptomssarr = {"headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
-"Difficulty recognizing people or places","Confusion or disorientation",
-"Changes in behavior/ irritability", "Repeated vomiting/nausea","Blurred Vision",
-"Change in eating or sleeping patterns","Loss of balance/unsteady walking","sensitivity to light and noise",
-"dilated pupils","Concentration and memory complaints"} // array of sysmptoms' names
-
-priorityarr = {8.85,8.0,7.5,7.88,6.92,7.5,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27} // corresponding priorities
-=======
-symptoms = []
->>>>>>> bb1ec6da3972bdadf05a0f0304bd6d090e0b9687
+// symptomssarr = {"headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
+// "Difficulty recognizing people or places","Confusion or disorientation",
+// "Changes in behavior/ irritability", "Repeated vomiting/nausea","Blurred Vision",
+// "Change in eating or sleeping patterns","Loss of balance/unsteady walking","sensitivity to light and noise",
+// "dilated pupils","Concentration and memory complaints"} // array of sysmptoms' names
+//
+// priorityarr = {8.85,8.0,7.5,7.88,6.92,7.5,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27} // corresponding priorities
+// symptoms = []
 
 
 
@@ -96,6 +93,15 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       //document.getElementById("checkbox-1").setAttribute("class", "test");
   }
 
-function checkBox() {
+function checkBox(id) {
+    // if doesn't have class checked add it, if it has it remove it
+    if(document.getElementById(id).classList.contains("checked")){
+        document.getElementById(id).classList.remove('checked');
+        document.getElementById(id).style.backgroundColor = '#ffffff';//white
+    }
+    else {
+        document.getElementById(id).style.backgroundColor = '#db8215';// orange
+        document.getElementById(id).classList.add("checked");
+    }
 
 }
