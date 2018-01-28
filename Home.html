@@ -3,6 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport"
      content="width=device-width, initial-scale=1, user-scalable=yes">
+
+    <!-- Dependencies -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -13,15 +15,16 @@
 </head>
 <body onLoad="getHospitals()">
 <center>
-        <div class="jumbotron jumbotron-fluid theme-orange-nohover">
+
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid theme-orange-nohover">
         <span>
         <img src="images/logo.png" />
         <h1 class="text-white">Concussion Checker</h1>
         </span>
     </div>
-<!--Checkbox butons-->
-<div class="container-fluid">
 
+    <div class="container-fluid">
         <h2>Select your symptoms:</h2>
 
         <div class="form-group badge-checkboxes checkbox">
@@ -90,52 +93,43 @@
                 </div>
             </div>
         </div>
-    </section>
-    <!--<button onclick="calcSymptomNumber()">Try it</button>-->
-<!--Checkbox butons-->
 
-<button type="button" onClick="calcSymptomNumber();" id="modalOpener" class="btn btn-primary theme-orange" data-toggle="modal" data-target="#exampleModal">Calculate Risk
-</button>
-<br><br>
-<div class="modal" tabindex="-1" role="dialog" id="exampleModal">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content theme-white">
-      <div class="modal-header theme-white">
-        <!-- <h5 class="modal-title">Modal title</h5> -->
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h3>Likelihood you have a concussion:</h3>
-        <h1 id="total"></h1>
+
+        <!-- Popup Modal -->
+        <button type="button" onClick="calcSymptomNumber();" id="modalOpener" class="btn btn-primary theme-orange" data-toggle="modal" data-target="#exampleModal">Calculate Risk</button>
         <br><br>
-        <h5 class="text-orange">Nearest Hospitals:</h5>
-        <div id="hospitalArea"></div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+        <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content theme-white">
+                    <div class="modal-header theme-white">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Likelihood you have a concussion:</h3>
+                        <h1 id="total"></h1>
+                        <br><br>
+                        <h5 class="text-orange">Nearest Hospitals:</h5>
+                        <div id="hospitalArea"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="fixedbottom">
+            <span>
+            <img src="images/MayoClinic.png" class = "mayoLogo"></img>
+            <img src="images/WebMD_logo.png" class = "researchLogo"/></img>
+            <img src="images/CDC.jpg" class = "researchLogo"></img>
+            <img src="images/ClevelandClinic.jpeg" class = "clevelandLogo"/></img>
+            <img src="images/Brainline.png" class = "researchLogo"/></img>
+            <img src="images/ResearchGate.png" class = "researchLogo"/></img>
+            </span>
+        </div>
 </center>
-<div class="fixedbot">
-    <br>
-    <br>
-<center>
-<span>
-<img src="images/MayoClinic.png" class = "mayoLogo"></img>
-<img src="images/WebMD_logo.png" class = "researchLogo"/></img>
-<img src="images/CDC.jpg" class = "researchLogo"></img>
-<img src="images/ClevelandClinic.jpeg" class = "clevelandLogo"/></img>
-<img src="images/Brainline.png" class = "researchLogo"/></img>
-<img src="images/ResearchGate.png" class = "researchLogo"/></img>
-</span>
-<br>
-
-</center>
-</div>
-</div>
 </body>
 </html>
