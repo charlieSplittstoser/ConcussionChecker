@@ -37,6 +37,10 @@ symptomsarr = ["headache",
 // priorityarr = {8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27} // corresponding priorities
 symptoms = []
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 42c06c4c4336599d48e5bea73a835a4c32527ea5
 function SymptomClass(symptom, priority) { // class to store name priorty and if it was checked or not (capatalized S and c)
   this.symptom = symptom
   this.priority = priority;
@@ -51,22 +55,6 @@ while (symptomsarr[i]) { //make each class for each symptom
   i++;
 }
 
-  function calcSymptomNumber() {
-        var checkboxes = [];
-        $('#checkbox-'+i).Class = "asda"
-        var numberOfCheckboxes = 15;
-
-        // get all checkbox elemetns
-         for(var i = 0; i < numberOfCheckboxes; i++){
-            var num = i + 1;
-        //     console.log(num);
-        $('#badge'+num).checked(true);//addClass('test');
-       //document.getElementById("checkbox-" + num).setAttribute("class", "test");
-         }
-      //document.getElementById("checkbox-1").setAttribute("class", "test");
-  }
-
-
 //AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8
 function getHospitals() {
     // Try HTML5 geolocation.
@@ -77,6 +65,7 @@ function getHospitals() {
           lng: position.coords.longitude
         };
 
+<<<<<<< HEAD
         $.ajax({
             url: "https://maps.googleapis.com/maps/api/geocode/json?&address=hospitals+near+" + pos.lat + ","+pos.lng,
             type: "GET",   
@@ -88,6 +77,17 @@ function getHospitals() {
         });  
         //xhttp.open("GET", "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Closest+hospital&location=" + pos.lat + "," + pos.lng + "&type=hospital&key=AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8", true);
 
+=======
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+               var obj = JSON.parse(xhttp.responseText)
+               console.log(xhttp.responseText);
+            }
+        };
+        xhttp.open("GET", "proxy.php?a=pjm", true);
+        xhttp.send();
+>>>>>>> 42c06c4c4336599d48e5bea73a835a4c32527ea5
 
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
@@ -98,10 +98,6 @@ function getHospitals() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
 }
-
-
-
-/* Gets a users lat and long */
 
 
 /* Handle errors with browsers that do not support the map */
@@ -118,7 +114,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
         var numberOfCheckboxes = 14;
         var badge = 'badge';
-         for(var i = 0; i < numberOfCheckboxes; i++){
+         for (var i = 0; i < numberOfCheckboxes; i++){
             var num = i + 1;
         //     console.log(num);
              if(document.getElementById(badge + num).classList.contains("checked")) {
@@ -136,7 +132,7 @@ function checkBox(id) {
         document.getElementById(id).style.backgroundColor = '#ffffff';//white
     }
     else {
-        document.getElementById(id).style.backgroundColor = '#db8215';// orange
+        document.getElementById(id).style.backgroundColor = '#ff8f0f';// orange
         document.getElementById(id).classList.add("checked");
     }
 
