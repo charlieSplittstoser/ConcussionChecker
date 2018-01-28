@@ -79,13 +79,25 @@ function calcSymptomNumber() {
          }
          result = "";
          if (total >= 15) {
-          result = "High Risk"
+          result = "High Risk";
+             document.getElementById("total").classList.remove("lowRisk");
+             document.getElementById("total").classList.remove("mediumRisk");
+
+             document.getElementById("total").classList.add("highRisk");
          }
          else if (total>=10) {
-          result = "Intermediate Risk"
+          result = "Intermediate Risk";
+             document.getElementById("total").classList.remove("lowRisk");
+             document.getElementById("total").classList.remove("highRisk");
+
+             document.getElementById("total").classList.add("mediumRisk");
          }
          else{
-          result = "Low Risk"
+          result = "Low Risk";
+             document.getElementById("total").classList.remove("highRisk");
+             document.getElementById("total").classList.remove("mediumRisk");
+
+             document.getElementById("total").classList.add("lowRisk");
          }
          document.getElementById("total").innerHTML = result;
          console.log(total);
