@@ -11,13 +11,29 @@ function loadMap() {
 }
 
 
-names = {"lol", "lol2"}
-priority = {"", ""}
+symptomssarr = {"headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
+"Difficulty recognizing people or places","Confusion or disorientation",
+"Changes in behavior/ irritability", "Repeated vomiting/nausea","Blurred Vision",
+"Change in eating or sleeping patterns","Loss of balance/unsteady walking","sensitivity to light and noise",
+"dilated pupils","Concentration and memory complaints"} // array of sysmptoms' names
 
-symptoms = []
+priorityarr = {8.85,8.0,7.5,7.88,6.92,7.5,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27} // corresponding priorities
 
 
-symptoms["headache"] = 8.85;
+
+
+function SymptomClass(symptom, priority) { // class to store name priorty and if it was checked or not (capatalized S and c)
+  this.symptom = symptom
+  this.priority = priority;
+  this.checked = false;
+}
+
+finalarr = {}; // array to story classes we make
+while (symptomsarr[i]) { //make each class for each symptom
+  var symptomClass = new SymptomClass(symptomsarr[i],priorityarr[i]);
+  finalarr[i] = symptomClass;
+  i++;
+}
 
 
 /* Initiates the map on the modal */
