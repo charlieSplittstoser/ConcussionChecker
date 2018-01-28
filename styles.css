@@ -96,3 +96,7 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+.test {
+    background-color: #1c7430;
+}
