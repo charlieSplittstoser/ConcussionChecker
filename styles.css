@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .body {
 
 }
@@ -77,3 +78,24 @@ h2 {
     font-size:18px;
     font-weight:bold;
 }
+=======
+
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+    height: 100%;
+}
+
+#mapContainer {
+    height:250px;
+    width:250px;
+    border:2px solid black;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+>>>>>>> db289eddf435e02cbd17ffa5b69302bd941a0b40
