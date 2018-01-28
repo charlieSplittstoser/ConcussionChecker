@@ -11,6 +11,7 @@ function loadMap() {
 }
 
 
+<<<<<<< HEAD
 symptomssarr = {"headache", "loss of consciousness","Confusion or disorientation","Lasting or recurrent dizziness",
 "Difficulty recognizing people or places","Confusion or disorientation",
 "Changes in behavior/ irritability", "Repeated vomiting/nausea","Blurred Vision",
@@ -18,6 +19,9 @@ symptomssarr = {"headache", "loss of consciousness","Confusion or disorientation
 "dilated pupils","Concentration and memory complaints"} // array of sysmptoms' names
 
 priorityarr = {8.85,8.0,7.5,7.88,6.92,7.5,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27} // corresponding priorities
+=======
+symptoms = []
+>>>>>>> bb1ec6da3972bdadf05a0f0304bd6d090e0b9687
 
 
 
@@ -86,9 +90,12 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
          for(var i = 0; i < numberOfCheckboxes; i++){
             var num = i + 1;
         //     console.log(num);
-        $('#badge'+num).addClass('test');
+        $('#badge'+num).checked(true);//addClass('test');
        //document.getElementById("checkbox-" + num).setAttribute("class", "test");
          }
       //document.getElementById("checkbox-1").setAttribute("class", "test");
   }
 
+function checkBox() {
+
+}
