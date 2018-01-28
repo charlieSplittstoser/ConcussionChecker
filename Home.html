@@ -44,10 +44,7 @@
 
 <center>
 
-    <div id="mapContainer">
-            <div id="map"></div>
-        </div>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" onClick="initMap()" id="modalOpener" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Launch demo modal
 </button>
 
@@ -61,7 +58,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+            <div id="mapContainer">
+            <div id="map"></div>
+        </div>
     
       </div>
       <div class="modal-footer">
@@ -74,7 +73,7 @@
 </center>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMB_KlWjEhAUjtxGgHkkbyLCGoKvH5UzU&callback=initMap&libraries=places"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMB_KlWjEhAUjtxGgHkkbyLCGoKvH5UzU&libraries=places"
 async defer></script>
 </body>
 </html>
