@@ -51,17 +51,22 @@ body {
 
 .badge-checkboxes .checkbox input[type="checkbox"]:checked:focus + .badge,
 .badge-checkboxes label.checkbox-inline input[type="checkbox"]:checked:focus + .badge {
+    color:#ffffff;
+
     box-shadow:0 0 2pt 1pt #333;  /* Outline when checkbox is focused/tabbed to */
 }
 
 .badge-checkboxes .checkbox input[type="checkbox"]:focus + .badge,
 .badge-checkboxes label.checkbox-inline input[type="checkbox"]:focus + .badge {
+    color:#ffffff;
+
     box-shadow:0 0 2pt 1pt #999;  /* Outline when checkbox is focused/tabbed to */
 }
 
 .badge-checkboxes .checkbox input[type="checkbox"] + .badge,
 .badge-checkboxes label.checkbox-inline input[type="checkbox"] + .badge {
     border:1px solid #999; /* Add outline to badge */
+    color:#ffffff;
 
     /* Make text in badge not selectable */
     -webkit-touch-callout: none;
@@ -137,17 +142,15 @@ html, body {
     padding: 0;
 }
 
-<<<<<<< HEAD
 .badge {
     border: 1px solid #db8215 !important;
 }
 
 .test {
     background-color: #1c7430 !important;
-    color:red;
-=======
+    color: red;
+}
 .checked {
     background-color: #db8215;
     color:white;
->>>>>>> e6c3c58506a8b348dcdf04ab2960eb59db5b4b5d
 }
