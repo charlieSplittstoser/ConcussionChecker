@@ -189,7 +189,7 @@ label.radio-inline, label.checkbox-inline {
     margin-right: 2%;
     margin-left: 2%;
     padding: 10px 10px 10px 30px;
-    border-style: solid !important;
+    /*border-style: solid !important;*/
 }
 label.radio-inline.checked, label.checkbox-inline.checked {
     background-color: #ffffff;
