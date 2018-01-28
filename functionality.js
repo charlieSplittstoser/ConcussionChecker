@@ -17,6 +17,8 @@ function getHospitals() {
           lng: position.coords.longitude
         };
 
+        console.log(pos.lat);
+
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -59,9 +61,9 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 function calcSymptomNumber() {
       getHospitals();
-      var priorityArr = [8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27];
+      var priorityArr = [8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27, 5.0];
 
-        var numberOfCheckboxes = 14;
+        var numberOfCheckboxes = 15;
         var badge = 'badge';
         var total = 0;
         var sum = 0;
@@ -77,10 +79,10 @@ function calcSymptomNumber() {
        //document.getElementById("badge" + num).setAttribute("class", "test");
          }
          result = "";
-         if (total >= 70) {
+         if (total >= 15) {
           result = "High Risk"
          }
-         else if (total>=35) {
+         else if (total>=10) {
           result = "Intermidate Risk"
          }
          else{
