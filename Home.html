@@ -8,7 +8,6 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="functionality.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
@@ -94,12 +93,8 @@
 
 
 
-<<<<<<< HEAD
-<button type="button" onClick="getHospitals()" id="modalOpener" class="btn btn-primary theme-orange" data-toggle="modal" data-target="#exampleModal">
-=======
-<button type="button" onClick="loadMap()" id="modalOpener" class="btn btn-primary theme-orange" data-toggle="modal" data-target="#exampleModal" onclick="calcSymptomNumber()">
->>>>>>> e6c3c58506a8b348dcdf04ab2960eb59db5b4b5d
-  Calculate Concussion Risk
+
+<button type="button" onClick="getHospitals()" id="modalOpener" class="btn btn-primary theme-orange" data-toggle="modal" data-target="#exampleModal" onclick="calcSymptomNumber()">
 </button>
 
 <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
@@ -116,29 +111,7 @@
         <h1>High</h1>
         <br><br>
         <h5 class="text-orange">Nearest Hospital:</h5>
-        <div ng-app="myApp" ng-controller="myCtrl"> 
 
-        <p>Today's welcome message is:</p>
-
-        <h1>{{myWelcome}}</h1>
-
-        </div>
-
-        <p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
-
-        <script>
-        var app = angular.module('myApp', []);
-        app.controller('myCtrl', function($scope, $http) {
-          $http.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query=Closest+hospital&location=45.67,87.56&type=hospital&key=AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8")
-          .then(function(response) {
-            $scope.myWelcome = response.data;
-              
-          });
-        });
-        </script>
-
-    
-      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary theme-orange">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
