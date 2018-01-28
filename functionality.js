@@ -22,8 +22,6 @@ var priorityarr = [8.85,8.0,7.5,7.88,6.92,7.5,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8
 symptoms = []
 
 
-
-
 function SymptomClass(symptom, priority) { // class to store name priorty and if it was checked or not (capatalized S and c)
   this.symptom = symptom
   this.priority = priority;
@@ -38,22 +36,6 @@ while (symptomsarr[i]) { //make each class for each symptom
   i++;
 }
 
-  function calcSymptomNumber() {
-        var checkboxes = [];
-        $('#checkbox-'+i).Class = "asda"
-        var numberOfCheckboxes = 15;
-
-        // get all checkbox elemetns
-         for(var i = 0; i < numberOfCheckboxes; i++){
-            var num = i + 1;
-        //     console.log(num);
-        $('#badge'+num).checked(true);//addClass('test');
-       //document.getElementById("checkbox-" + num).setAttribute("class", "test");
-         }
-      //document.getElementById("checkbox-1").setAttribute("class", "test");
-  }
-
-
 //AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8
 function getHospitals() {
     // Try HTML5 geolocation.
@@ -67,14 +49,12 @@ function getHospitals() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
+               var obj = JSON.parse(xhttp.responseText)
                console.log(xhttp.responseText);
             }
         };
         xhttp.open("GET", "proxy.php?a=pjm", true);
         xhttp.send();
-
-        //xhttp.open("GET", "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Closest+hospital&location=" + pos.lat + "," + pos.lng + "&type=hospital&key=AIzaSyDfjRkSCxZ-VYDKGyvtpI0_1gYIaBlfqX8", true);
-
 
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
@@ -85,10 +65,6 @@ function getHospitals() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
 }
-
-
-
-/* Gets a users lat and long */
 
 
 /* Handle errors with browsers that do not support the map */
@@ -108,7 +84,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
         var numberOfCheckboxes = 14;
         var badge = 'badge';
-         for(var i = 0; i < numberOfCheckboxes; i++){
+         for (var i = 0; i < numberOfCheckboxes; i++){
             var num = i + 1;
 
         //     console.log(num);
@@ -130,7 +106,7 @@ function checkBox(id) {
         document.getElementById(id).style.backgroundColor = '#ffffff';//white
     }
     else {
-        document.getElementById(id).style.backgroundColor = '#db8215';// orange
+        document.getElementById(id).style.backgroundColor = '#ff8f0f';// orange
         document.getElementById(id).classList.add("checked");
     }
 
