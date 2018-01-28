@@ -11,12 +11,12 @@ function loadMap() {
 }
 
 
-symptomssarr = {"headache", 
+symptomssarr = ["headache",
 "loss of consciousness",
 "Confusion or disorientation",
 "Lasting or recurrent dizziness",
 "Difficulty recognizing people or places",
-"Ringing in ear"
+"Ringing in ear",
 "Changes in behavior/ irritability", 
 "Repeated vomiting/nausea",
 "Blurred Vision",
@@ -24,9 +24,9 @@ symptomssarr = {"headache",
 "Loss of balance/unsteady walking",
 "sensitivity to light and noise",
 "dilated pupils",
-"Concentration and memory complaints"} // array of sysmptoms' names
+"Concentration and memory complaints"] // array of sysmptoms' names
 
-priorityarr = {8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27} // corresponding priorities
+// priorityarr = {8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27} // corresponding priorities
 symptoms = []
 
 
@@ -88,18 +88,19 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   }
 
   function calcSymptomNumber() {
-        var checkboxes = [];
-        $('#checkbox-'+i).Class = "asda"
-        var numberOfCheckboxes = 15;
+      var priorityArr = [8.85,8.0,7.5,7.88,6.92,4.0,3.85,7.73,4.0,4.5,5.58,5.77,3.27,8.27];
 
-        // get all checkbox elemetns
+        var numberOfCheckboxes = 14;
+        var badge = 'badge';
          for(var i = 0; i < numberOfCheckboxes; i++){
             var num = i + 1;
         //     console.log(num);
-        $('#badge'+num).checked(true);//addClass('test');
-       //document.getElementById("checkbox-" + num).setAttribute("class", "test");
+             if(document.getElementById(badge + num).classList.contains("checked")) {
+                console.log(num);
+             }
+       //document.getElementById("badge" + num).setAttribute("class", "test");
          }
-      //document.getElementById("checkbox-1").setAttribute("class", "test");
+      // //document.getElementById("checkbox-1").setAttribute("class", "test");
   }
 
 function checkBox(id) {
