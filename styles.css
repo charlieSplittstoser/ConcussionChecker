@@ -1,5 +1,23 @@
 body {
+    background-color:#4f4b4b;
+}
 
+.theme-orange {
+    background-color:#db8215;
+    border-color:#db8215;
+}
+
+.theme-orange:hover {
+    background-color:#c6730d;
+    border-color:#c6730d;
+}
+
+.theme-gray {
+    background-color:#4f4b4b;
+}
+
+.text-orange {
+    color:#db8215;
 }
 
 .badge-checkboxes .checkbox input[type="checkbox"],
@@ -85,7 +103,7 @@ h2 {
 }
 
 #mapContainer {
-    height:250px;
+    height:150px;
     width:250px;
     border:2px solid black;
 }

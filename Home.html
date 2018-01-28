@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
      content="width=device-width, initial-scale=1, user-scalable=yes">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -11,14 +11,14 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-
+<center>
 <!--Checkbox butons-->
 <div class="container">
     <section>
-        <h1>Badge style checkboxes</h1>
+        <h1>Concussion Checker</h1>
     </section>
     <section>
-        <h2>Examples</h2>
+        <h2>Select your symptoms:</h2>
 
         <div class="form-group badge-checkboxes checkbox">
             <label>Select some options - inline checkboxes</label>
@@ -93,29 +93,34 @@
 
 
 
-<center>
 
-<button type="button" onClick="initMap()" id="modalOpener" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
+
+<button type="button" onClick="loadMap()" id="modalOpener" class="btn btn-primary theme-orange" data-toggle="modal" data-target="#exampleModal">
+  Calculate Concussion Risk
 </button>
 
 <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+    <div class="modal-content theme-gray">
+      <div class="modal-header theme-gray">
+        <!-- <h5 class="modal-title">Modal title</h5> -->
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-            <div id="mapContainer">
+        <h3>Likelihood you have a concussion:</h3>
+        <h1>High</h1>
+        <br><br>
+        <h5 class="text-orange">Nearest Hospital:</h5>
+        <div id="mapContainer">
             <div id="map"></div>
         </div>
+
     
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary theme-orange">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
