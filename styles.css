@@ -86,7 +86,7 @@ body {
 /* Remove badge background-color and set text color for not checked options */
 .badge-checkboxes .checkbox input[type="checkbox"]:not(:checked) + .badge,
 .badge-checkboxes label.checkbox-inline input[type="checkbox"]:not(:checked) + .badge{
-    /*background-color:Transparent;*/
+    background-color:#ffffff;
     color:#000000;
 }
 
@@ -137,6 +137,7 @@ html, body {
     padding: 0;
 }
 
+<<<<<<< HEAD
 .badge {
     border: 1px solid #db8215 !important;
 }
@@ -144,4 +145,9 @@ html, body {
 .test {
     background-color: #1c7430 !important;
     color:red;
+=======
+.checked {
+    background-color: #db8215;
+    color:white;
+>>>>>>> e6c3c58506a8b348dcdf04ab2960eb59db5b4b5d
 }

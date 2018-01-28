@@ -28,66 +28,61 @@
             <label>Select some options - inline checkboxes</label>
             <div>
                 <label class="checkbox-inline">
-                    <input id="checkbox-1" type="checkbox" value="">
-                    <span id="badge1" class="badge">Ringing in the ears</span>
+                    <input id="checkbox-1" type="checkbox" value="" onclick="checkBox('badge1')">
+                    <span id="badge1" class="badge">headache</span>
                 </label>
                 <label class="checkbox-inline">
-                    <input id="checkbox-2" type="checkbox" value="">
-                    <span id="badge2" class="badge">Concentration and memory complaints</span>
+                    <input id="checkbox-2" type="checkbox" value="" onclick="checkBox('badge2')">
+                    <span id="badge2" class="badge">loss of consciousness</span>
                 </label>
                 <label class="checkbox-inline">
-                    <input id="checkbox-3" type="checkbox" value="">
-                    <span id="badge3" class="badge">Slurred speech</span>
+                    <input id="checkbox-3" type="checkbox" value="" onclick="checkBox('badge3')">
+                    <span id="badge3" class="badge">Confusion or disorientation</span>
                 </label>
                 <label class="checkbox-inline">
-                    <input id="checkbox-4" type="checkbox" value="">
-                    <span id="badge4" class="badge">Sensitivity to light and noise</span>
+                    <input id="checkbox-4" type="checkbox" value="" onclick="checkBox('badge4')">
+                    <span id="badge4" class="badge">Lasting or recurrent dizziness</span>
                 </label>
                 <label class="checkbox-inline">
-                    <input id="checkbox-5" type="checkbox" value="">
-                    <span id="badge5" class="badge">Loss of balance and unsteady walking</span>
+                    <input id="checkbox-5" type="checkbox" value="" onclick="checkBox('badge5')">
+                    <span id="badge5" class="badge">Difficulty recognizing people or places</span>
                 </label>
                 <label class="checkbox-inline">
-                    <input id="checkbox-6" type="checkbox" value="">
-                    <span id="badge6" class="badge">Change in eating or sleeping patterns</span>
+                    <input id="checkbox-6" type="checkbox" value="" onclick="checkBox('badge6')">
+                    <span id="badge6" class="badge">"Ringing in ear"</span>
                 </label>
                 <label class="checkbox-inline">
-                    <input id="checkbox-7" type="checkbox" value="">
-                    <span id="badge7" class="badge">Blurred Vision</span>
+                    <input id="checkbox-7" type="checkbox" value="" onclick="checkBox('badge7')">
+                    <span id="badge7" class="badge">Changes in behavior/ irritability</span>
                 </label>
                 <label class="checkbox-inline">
-                    <input id="checkbox-8" type="checkbox" value="">
-                    <span id="badge8" class="badge">Repeated vomiting</span>
+                    <input id="checkbox-8" type="checkbox" value="" onclick="checkBox('badge8')">
+                    <span id="badge8" class="badge">Repeated vomiting/nausea</span>
                 </label>
                 <label class="checkbox-inline">
-                    <input id="checkbox-9" type="checkbox" value="">
-                    <span id="badge9" class="badge">A headache that gets worse over time</span>
+                    <input id="checkbox-9" type="checkbox" value="" onclick="checkBox('badge9')">
+                    <span id="badge9" class="badge">Blurred Vision</span>
                 </label>
                 <label class="checkbox-inline">
-                    <input id="checkbox-10" type="checkbox" value="">
-                    <span id="badge10" class="badge">Changes in behavior</span>
+                    <input id="checkbox-10" type="checkbox" value="" onclick="checkBox('badge10')">
+                    <span id="badge10" class="badge">Change in eating or sleeping patterns</span>
                 </label>
                 <label class="checkbox-inline">
-                    <input id="checkbox-11" type="checkbox" value="">
-                    <span id="badge11" class="badge">Confusion or disorientation</span>
+                    <input id="checkbox-11" type="checkbox" value="" onclick="checkBox('badge11')">
+                    <span id="badge11" class="badge">Loss of balance/unsteady walking</span>
                 </label>
                 <label class="checkbox-inline">
-                    <input id="checkbox-12" type="checkbox" value="">
-                    <span id="badge12" class="badge">Difficulty recognizing people or places</span>
+                    <input id="checkbox-12" type="checkbox" value="" onclick="checkBox('badge12')">
+                    <span id="badge12" class="badge">sensitivity to light and noise</span>
                 </label>
                 <label class="checkbox-inline">
-                    <input id="checkbox-13" type="checkbox" value="" />
-                    <span id="badge13" class="badge">Lasting or recurrent dizziness</span>
-                </label>
-                <label class="checkbox-inline"  onclick="calcSymptomNumber()">
-                    <input id="checkbox-14" type="checkbox" value="">
-                   <span id="badge14" class="badge">A loss of consciousness lasting longer than 30 seconds</span>
+                    <input id="checkbox-13" type="checkbox" value=""  onclick="checkBox('badge13')"/>
+                    <span id="badge13" class="badge">Dilated pupils</span>
                 </label>
                 <label class="checkbox-inline">
-                    <input id="checkbox-15" type="checkbox" value="" class="test">
-                    <span id="badge15" class="badge">Dilated pupils</span>
+                    <input id="checkbox-14" type="checkbox" value="" onclick="checkBox('badge14')">
+                   <span id="badge14" class="badge">Concentration and memory complaints</span>
                 </label>
-
             </div>
         </div>
     </section>
@@ -99,7 +94,11 @@
 
 
 
+<<<<<<< HEAD
 <button type="button" onClick="getHospitals()" id="modalOpener" class="btn btn-primary theme-orange" data-toggle="modal" data-target="#exampleModal">
+=======
+<button type="button" onClick="loadMap()" id="modalOpener" class="btn btn-primary theme-orange" data-toggle="modal" data-target="#exampleModal" onclick="calcSymptomNumber()">
+>>>>>>> e6c3c58506a8b348dcdf04ab2960eb59db5b4b5d
   Calculate Concussion Risk
 </button>
 
