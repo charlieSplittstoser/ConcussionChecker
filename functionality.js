@@ -57,11 +57,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         var numberOfCheckboxes = 15;
 
         // get all checkbox elemetns
-        // for(i = 0; i < numberOfCheckboxes; i++){
-        //     var num = i + 1;
-        //     console.log(num);
-        //     numberOfCheckboxes[i] = document.getElementById("checkbox-" + num).setAttribute("class", "test");
-        // }
+        for(var i = 0; i < numberOfCheckboxes; i++){
+            var num = i + 1;
+            document.getElementById("checkbox-" + num).setAttribute("class", "test");
+            //numberOfCheckboxes[i].setAttribute("class", "test");
+        }
       document.getElementById("checkbox-1").setAttribute("class", "test");
   }
 
