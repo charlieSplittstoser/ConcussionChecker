@@ -142,8 +142,9 @@ html, body {
     padding: 0;
 }
 
-#hospitalArea {
-    white-space: nowrap
+
+.modal {
+    margin: auto;
 }
 
 .badge {
@@ -173,13 +174,14 @@ html, body {
     height:40px;
     width:120px;
 }
+
 footer {
-    position: fixed;
     height: 100px;
     bottom: 0;
-    margin-bottom:15px;
+    margin-top:25px;
     width: 100%;
 }
+
 
 label.radio-inline, label.checkbox-inline {
     background-color: #ffffff;
